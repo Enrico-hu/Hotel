@@ -22,7 +22,6 @@ public class HotelREST {
 		Hotel hotel = new Hotel();
 		CreaHotelResponse response = new CreaHotelResponse();
 		response.setValueError(0);
-		String test = "Ho modificato";
 		
 		hotel.creaHotel(hotel);
 		response.setHotel(hotel);
