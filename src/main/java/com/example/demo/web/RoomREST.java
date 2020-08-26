@@ -1,21 +1,20 @@
 package com.example.demo.web;
 
-import java.text.ParseException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.OM.PrenotaRequest;
-import com.example.demo.OM.PrenotaResponse;
 import com.example.demo.hotel.Room;
+import com.example.demo.om.PrenotaRequest;
+import com.example.demo.om.PrenotaResponse;
 
 @RestController
 @RequestMapping(value="/stanza")
 public class RoomREST {
 	
 	@PostMapping(value="/prenota")
-	public PrenotaResponse prenota(@RequestBody PrenotaRequest request) throws ParseException {
+	public PrenotaResponse prenota(@RequestBody PrenotaRequest request) {
 		PrenotaResponse response = new PrenotaResponse();
 		response.setValueError(0);
 		

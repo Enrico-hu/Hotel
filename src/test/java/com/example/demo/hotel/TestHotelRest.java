@@ -7,9 +7,9 @@ import java.text.SimpleDateFormat;
 
 import org.junit.Test;
 
-import com.example.demo.OM.AggiornaCameraRequest;
-import com.example.demo.OM.AggiornaCameraResponse;
-import com.example.demo.OM.CreaHotelResponse;
+import com.example.demo.om.AggiornaCameraRequest;
+import com.example.demo.om.AggiornaCameraResponse;
+import com.example.demo.om.CreaHotelResponse;
 import com.example.demo.web.HotelREST;
 
 public class TestHotelRest {

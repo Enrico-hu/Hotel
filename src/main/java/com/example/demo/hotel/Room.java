@@ -32,7 +32,7 @@ public class Room {
 			return prenotazione;
 		}
 			
-		if(cameraRichiesta<Hotel.numeroCamere) {
+		if(cameraRichiesta<Hotel.NUMEROCAMERE) {
 			prenotazione.setNumeroStanzaPrenotata(cameraRichiesta);
 			hotel = hotel.aggiornaCamera(hotel, prenotazione, false);
 			if(hotel.isStatoPrenotazione()) {

@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.OM.CreaHotelResponse;
-import com.example.demo.OM.AggiornaCameraRequest;
-import com.example.demo.OM.AggiornaCameraResponse;
 import com.example.demo.hotel.Hotel;
+import com.example.demo.om.AggiornaCameraRequest;
+import com.example.demo.om.AggiornaCameraResponse;
+import com.example.demo.om.CreaHotelResponse;
 
 
 @RestController
@@ -22,6 +22,7 @@ public class HotelREST {
 		Hotel hotel = new Hotel();
 		CreaHotelResponse response = new CreaHotelResponse();
 		response.setValueError(0);
+		String test = "Ho modificato";
 		
 		hotel.creaHotel(hotel);
 		response.setHotel(hotel);

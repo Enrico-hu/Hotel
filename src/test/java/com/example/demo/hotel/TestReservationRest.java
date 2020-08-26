@@ -7,8 +7,8 @@ import java.text.SimpleDateFormat;
 
 import org.junit.Test;
 
-import com.example.demo.OM.ReservationRequest;
-import com.example.demo.OM.ReservationResponse;
+import com.example.demo.om.ReservationRequest;
+import com.example.demo.om.ReservationResponse;
 import com.example.demo.web.ReservationREST;
 
 public class TestReservationRest {

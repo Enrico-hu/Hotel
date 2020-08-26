@@ -4,14 +4,14 @@ import java.util.logging.Logger;
 
 public class Hotel {
 	private Room[] stanzeHotel; //hotel � un insieme di camere che possono essere libere o occupate
-	public static int numeroCamere = 5; //hotel ha un numero massimo di camere (ad ogni numero corrisponde una psozione sull'array)
+	public static final int NUMEROCAMERE = 5; //hotel ha un numero massimo di camere (ad ogni numero corrisponde una psozione sull'array)
 	private boolean statoPrenotazione;
 	
 	public void creaHotel(Hotel hotel) {
 		
 		
-		hotel.stanzeHotel = new Room[numeroCamere];
-		for(int i = 0; i< numeroCamere; i++) {		
+		hotel.stanzeHotel = new Room[NUMEROCAMERE];
+		for(int i = 0; i< NUMEROCAMERE; i++) {		
 			hotel.stanzeHotel[i] = new Room();
 			hotel.stanzeHotel[i].creaStanza(hotel.stanzeHotel[i], i, (int) (Math.random()*3)+1, (int) (Math.random()*3)+1);
 		}
