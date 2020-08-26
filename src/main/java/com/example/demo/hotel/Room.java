@@ -22,10 +22,9 @@ public class Room {
 	}
 	
 	//il metodo aggiorna il numero delle stanze libere nell'hotel e restituisce una prenotazione
-	public static Reservation prenota (Hotel hotel, String nomePrenotazione, Date dataArrivo, Date dataPartenza, boolean flagPagamento) {
+	public static Reservation prenota (Hotel hotel, String nomePrenotazione, Date dataArrivo, Date dataPartenza, boolean flagPagamento, int cameraRichiesta) {
 		
 		Reservation prenotazione = new Reservation();	
-		int cameraRichiesta = 3;
 		
 		prenotazione.creaPrenotazione(prenotazione, nomePrenotazione, dataArrivo, dataPartenza, flagPagamento);		
 

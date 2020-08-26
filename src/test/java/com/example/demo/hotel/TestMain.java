@@ -19,9 +19,10 @@ public class TestMain {
 		Date dataArrivo = new SimpleDateFormat("dd/MM/yyyy").parse("01/09/2020");
 		Date dataPartenza = new SimpleDateFormat("dd/MM/yyyy").parse("03/09/2020");
 		boolean flagPagamento = true;
+		int camera = 2;
 		
 		Main.main(null);
-		Reservation p = Room.prenota(hotel, nomePrenotazione, dataArrivo, dataPartenza, flagPagamento);
+		Reservation p = Room.prenota(hotel, nomePrenotazione, dataArrivo, dataPartenza, flagPagamento, camera);
 		
 		assertEquals("Enrico", p.getNomePrenotazione());
 		assertEquals(dataArrivo, p.getDataArrivo());

@@ -31,6 +31,8 @@ public class TestRoom {
 		Date dataArrivo = new SimpleDateFormat("dd/MM/yyyy").parse("20/08/2020");
 		Date dataPartenza = new SimpleDateFormat("dd/MM/yyyy").parse("22/08/2020");
 		boolean flagPagamento = true;
+		Reservation prenotazioneTest = new Reservation();
+		int camera = 2;
 				
 		hotelTest.setStanzeHotel(new Room[5]);
 		for(int i = 0; i< 5; i++) {		
@@ -46,10 +48,47 @@ public class TestRoom {
 		hotelTest.getStanzeHotel()[3].setLibera(true);
 		hotelTest.getStanzeHotel()[4].setLibera(true);
 		
-		Room.prenota(hotelTest, nome, dataArrivo, dataPartenza, flagPagamento);
+		prenotazioneTest = Room.prenota(hotelTest, nome, dataArrivo, dataPartenza, flagPagamento, camera);
 		
 		assertEquals(true, hotelTest.getStanzeHotel()[0].isLibera());
 		assertEquals(true, hotelTest.getStanzeHotel()[1].isLibera());
+		assertEquals(0, prenotazioneTest.getErrorValue());
 //se faccio gli assert per le posizioni 2, 3 e 4 mi va in failure 
+	}
+	
+	@Test
+	public void testPrenotaDateInvertite() throws ParseException {
+		Hotel hotelTest = new Hotel();
+		String nome = "Enrico";
+		Date dataArrivo = new SimpleDateFormat("dd/MM/yyyy").parse("20/08/2020");
+		Date dataPartenza = new SimpleDateFormat("dd/MM/yyyy").parse("22/07/2020");
+		boolean flagPagamento = true;
+		Reservation prenotazioneTest = new Reservation();
+		int camera = 2;
+		
+		
+		hotelTest.creaHotel(hotelTest);
+		
+		prenotazioneTest = Room.prenota(hotelTest, nome, dataArrivo, dataPartenza, flagPagamento, camera);
+		
+		assertEquals(1, prenotazioneTest.getErrorValue());
+	}
+	
+	@Test
+	public void testPrenotaCameraInesistente() throws ParseException {
+		Hotel hotelTest = new Hotel();
+		String nome = "Enrico";
+		Date dataArrivo = new SimpleDateFormat("dd/MM/yyyy").parse("20/08/2020");
+		Date dataPartenza = new SimpleDateFormat("dd/MM/yyyy").parse("22/08/2020");
+		boolean flagPagamento = true;
+		Reservation prenotazioneTest = new Reservation();
+		int camera = 8;
+		
+		
+		hotelTest.creaHotel(hotelTest);
+		
+		prenotazioneTest = Room.prenota(hotelTest, nome, dataArrivo, dataPartenza, flagPagamento, camera);
+		
+		assertEquals(1, prenotazioneTest.getErrorValue());
 	}
 }

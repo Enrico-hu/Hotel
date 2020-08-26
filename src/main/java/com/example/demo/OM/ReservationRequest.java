@@ -10,6 +10,7 @@ public class ReservationRequest {
 	private Date dataPartenza;
 	private boolean flagPagamento;
 	private String error;
+	private int cameraPrenotata;
 	private int valueError;
 	
 	
@@ -55,6 +56,12 @@ public class ReservationRequest {
 	}
 	public void setValueError(int valueError) {
 		this.valueError = valueError;
+	}
+	public int getCameraPrenotata() {
+		return cameraPrenotata;
+	}
+	public void setCameraPrenotata(int cameraPrenotata) {
+		this.cameraPrenotata = cameraPrenotata;
 	}
 	
 }

@@ -19,7 +19,7 @@ public class RoomREST {
 		PrenotaResponse response = new PrenotaResponse();
 		response.setValueError(0);
 		
-		response.setPrenotazione(Room.prenota(request.getHotel(), request.getNomePrenotazione(), request.getDataArrivo(), request.getDataPartenza(), request.isFlagPagamento()));
+		response.setPrenotazione(Room.prenota(request.getHotel(), request.getNomePrenotazione(), request.getDataArrivo(), request.getDataPartenza(), request.isFlagPagamento(), request.getCameraRichiesta()));
 		
 		if(response.getPrenotazione()==null) {
 			response.setError("Prenotazione inesistente");

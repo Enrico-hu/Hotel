@@ -17,7 +17,7 @@ import com.example.demo.hotel.Hotel;
 public class HotelREST {
 
 	@GetMapping(value="/creaHotel")
-	public CreaHotelResponse prenotaREST() {
+	public CreaHotelResponse creaHotelREST() {
 
 		Hotel hotel = new Hotel();
 		CreaHotelResponse response = new CreaHotelResponse();
@@ -25,11 +25,6 @@ public class HotelREST {
 		
 		hotel.creaHotel(hotel);
 		response.setHotel(hotel);
-		
-		if(response.getHotel()==null) {
-			response.setValueError(1);
-			response.setError("Hotel null");
-		}
 
 		return response;		
 	}
@@ -40,6 +35,7 @@ public class HotelREST {
 		int stanzaPrenotata = request.getPrenotazione().getNumeroStanzaPrenotata();
 		
 		response.setValueError(0);
+		response.setHotel(request.getHotel());
 		
 		if(request.isStatoPrenotazione()) {
 			response.setValueError(1);
@@ -47,19 +43,14 @@ public class HotelREST {
 			return response;
 		}
 		
-		request.getHotel().aggiornaCamera(request.getHotel(), request.getPrenotazione(), request.isStatoPrenotazione());
-		
-		response.setHotel(request.getHotel());
-		response.setStatoPrenotazione(request.getHotel().isStatoPrenotazione());
-		
-		
-		if(response.getHotel()!=null) {
-			if(response.getHotel().getStanzeHotel()[stanzaPrenotata].isLibera() || !response.getHotel().isStatoPrenotazione()) {
+		if(response.getHotel()!=null && !response.getHotel().getStanzeHotel()[stanzaPrenotata].isLibera()) {
 				response.setValueError(1);
 				response.setError("Stanza già prenotata");
 				return response;
-			} 
 		}
+		
+		request.getHotel().aggiornaCamera(request.getHotel(), request.getPrenotazione(), request.isStatoPrenotazione());
+		response.setStatoPrenotazione(request.getHotel().isStatoPrenotazione());
 		
 		if(!response.isStatoPrenotazione()) {
 			response.setValueError(1);

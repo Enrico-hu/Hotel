@@ -11,6 +11,7 @@ public class PrenotaRequest {
 	private Date dataArrivo;
 	private Date dataPartenza;
 	private boolean flagPagamento;
+	private int cameraRichiesta;
 	
 	
 	public Hotel getHotel() {
@@ -42,5 +43,11 @@ public class PrenotaRequest {
 	}
 	public void setFlagPagamento(boolean flagPagamento) {
 		this.flagPagamento = flagPagamento;
+	}
+	public int getCameraRichiesta() {
+		return cameraRichiesta;
+	}
+	public void setCameraRichiesta(int cameraRichiesta) {
+		this.cameraRichiesta = cameraRichiesta;
 	}
 }

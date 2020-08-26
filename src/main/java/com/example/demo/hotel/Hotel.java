@@ -82,8 +82,6 @@ public class Hotel {
 		
 		return hotelLibero;//se l'hotel è pieno restituice un false
 	}
-
-	public Hotel() {};
 	
 	
 	public Room[] getStanzeHotel() {

@@ -22,6 +22,7 @@ public class ReservationREST {
 		response.getPrenotazione().setNumeroRegistrazione((int) (Math.random()*100000)+1);
 		response.getPrenotazione().setNomePrenotazione(request.getNomePrenotazione());
 		response.getPrenotazione().setDataArrivo(request.getDataArrivo());
+		response.getPrenotazione().setNumeroStanzaPrenotata(request.getCameraPrenotata());
 		
 			
 		if(request.getDataPartenza().before(request.getDataArrivo())) {
