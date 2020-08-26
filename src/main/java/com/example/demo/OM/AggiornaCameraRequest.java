@@ -10,6 +10,7 @@ public class AggiornaCameraRequest {
 	private boolean statoPrenotazione;
 	private String error;
 	private int valueError;
+	private int hoFattoUnaMOdifica;
 	
 	
 	public Hotel getHotel() {
